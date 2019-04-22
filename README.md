@@ -23,7 +23,7 @@
     - Data Engineering
 
 - Predictive task and model detail
-        - We would like build a model which brings the International Futuresdata into the Human Development Index data to build a model which predicts progress in Human Development among nations
+    - We would like build a model which brings the International Futuresdata into the Human Development Index data to build a model which predicts progress in Human Development among nations
 
 - Tentative timeline
      - May 1st - Data Collection/Cleaning
