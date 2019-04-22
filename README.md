@@ -21,8 +21,8 @@ Potential Datasets
 - Literature Review
 
 - Required word detail before model
-        - Merge different datasets from different sources.
-        - Data Engineering
+    - Merge different datasets from different sources.
+    - Data Engineering
 
 - Predictive task and model detail
         - We would like build a model which brings the International Futures
@@ -30,9 +30,9 @@ Potential Datasets
         predicts progress in Human Development among nations
 
 - Tentative timeline
-        - May 1st - Data Collection/Cleaning
-        - May 15th - Model Construction/Testing
-        - June 1st - Application Interface development
+     - May 1st - Data Collection/Cleaning
+     - May 15th - Model Construction/Testing
+     - June 1st - Application Interface development
 
 
 
