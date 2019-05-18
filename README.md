@@ -4,33 +4,45 @@
     - Nema Sobhani
     - David LaCharite
 
-- Problems/Motivation
-    - Using Data to predict Human Development.
+- Motivation & Data
+    - Using Data to **Predict Costa Rican Household Poverty** (from Kaggle found [here](https://www.kaggle.com/c/costa-rican-household-poverty-prediction)).
 
 - Libraries/tools
     - Pandas
+    - Numpy
     - Scikit Learn
     - AWS
 
-- Data Collection Details
-    - Human Development Index (from UN)
-        - http://hdr.undp.org/en/data
-    - International Futures (From Pardee Center for International Futures)
-        - http://www.ifs.du.edu/ifs/frm_MainMenu.aspx
-
 - Literature Review
+    - *Pending...*
 
-- Required word detail before model
-    - Merge different datasets from different sources.
-    - Data Engineering
+## Approach
 
-- Predictive task and model detail
-    - We would like build a model which brings the International Futuresdata into the Human Development Index data to build a model which predicts progress in Human Development among nations
+1.  Data Exploration/Visualization
+    -  Assess and visualize impact of different features on poverty level
+    -  Find important features
+        -  Manually from visualization
+        -  Using sklearn feature selection
 
-- Tentative timeline
-     - May 1st - Data Collection/Cleaning
-     - May 15th - Model Construction/Testing
-     - June 1st - Application Interface development
+2.  Cleaning
+    -  Decide on how to handle null values
+    -  Encoding necessary? 
+    
+3.  Feature Selection/Engineering
+    -  Finalize features to include in model
+    -  Perform logical transformations.
+    
+4.  Classification
+    -  Try various models and report accuracy
+    
+5.  Tuning of hyper-parameters
+    -  ???
 
 
+## Tentative timeline
 
+Data Collection/Cleaning | May 1st
+--- | --- 
+Model Construction/Testing | May 15th
+--- | --- 
+Application Interface development | June 1st
