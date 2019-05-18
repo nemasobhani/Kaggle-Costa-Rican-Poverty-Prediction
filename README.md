@@ -43,6 +43,6 @@
 
 Action | Date
 --- | --- 
-Data Collection/Cleaning | May 24th
-Model Construction/Testing | May 31st
-Application Interface development | June 7th
+Data Collection/Cleaning | May 20th
+Model Construction/Testing | May 27th
+Application Interface development | June 3th
