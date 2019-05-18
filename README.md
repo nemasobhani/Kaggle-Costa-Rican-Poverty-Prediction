@@ -1,4 +1,4 @@
-# Human Development Index Model
+# Costa Rican Household Poverty Level Prediction
 
 - Team Members:
     - Nema Sobhani
@@ -42,7 +42,5 @@
 ## Tentative timeline
 
 Data Collection/Cleaning | May 1st
---- | --- 
 Model Construction/Testing | May 15th
---- | --- 
 Application Interface development | June 1st
