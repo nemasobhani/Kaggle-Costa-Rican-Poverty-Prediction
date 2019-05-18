@@ -41,6 +41,8 @@
 
 ## Tentative timeline
 
+Action | Date
+--- | --- 
 Data Collection/Cleaning | May 1st
 Model Construction/Testing | May 15th
 Application Interface development | June 1st
