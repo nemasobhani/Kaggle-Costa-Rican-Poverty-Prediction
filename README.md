@@ -1,5 +1,5 @@
 # Costa Rican Household Poverty Level Prediction
-## From Kaggle Competition
+(From Kaggle Competition)
 
 - Team Members:
     - Nema Sobhani
