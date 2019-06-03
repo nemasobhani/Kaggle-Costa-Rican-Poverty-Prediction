@@ -82,3 +82,62 @@ def dataframe_generator(rent=False):
 
 
     return df
+
+
+
+# Rent Prediction Function
+def dataframe_generator_rent():
+    
+    #_______________________________
+    # DATAFRAME SETUP
+    #_______________________________
+    
+    # Setting up new dataframe (including rent data)
+    df_rent = dataframe_generator(rent=True)
+    
+    # Remove missing values for target (rent)
+    df_rent_predict = df_rent.dropna()
+
+    
+    #_______________________________
+    # CLASSIFICATION SETUP
+    #_______________________________
+    
+    # Partition explanatory and response variables
+    X = df_rent_predict.drop(columns='v2a1')
+    y = df_rent_predict['v2a1']
+
+    # Split into training and test data
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state=12345)
+    
+    
+    #_______________________________
+    # CLASSIFICATION 
+    # (using xgboost because it consistently gave highest score)
+    #_______________________________
+    
+    # Setup classifier
+    clf_xgb = xgb.XGBClassifier(max_depth=6,n_estimators=100, n_jobs=-1, subsample=.7)
+    
+    # Fit model
+    clf_xgb.fit(X_train, y_train)
+    
+    
+    #_______________________________
+    # FILL NAN USING PREDICTED VALUES FROM MODEL
+    #_______________________________
+    
+    # Prepare data to fill in predicted values for rent
+    df_rent_nan = df_rent[df_rent.v2a1.isna()]
+    
+    # Predict using model
+    rent_pred = clf_xgb.predict(df_rent_nan.drop(columns='v2a1'))
+    
+    # Fill NaN
+    df_rent_nan['v2a1'] = pd.DataFrame(rent_pred).values
+    
+    # Update full dataframe
+    df_rent[df_rent.v2a1.isna()] = df_rent_nan
+    
+    
+    return df_rent
