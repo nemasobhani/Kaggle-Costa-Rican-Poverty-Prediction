@@ -12,10 +12,10 @@ from sklearn.ensemble import RandomForestRegressor
 
 
 # DataFrame Generator Function
-def dataframe_generator(rent=False):
+def dataframe_generator(data, rent=False):
 
     # Load dataframe
-    df = pd.read_csv('train.csv')
+    df = pd.read_csv(data)
 
 
     #_______________________________
@@ -79,7 +79,7 @@ def dataframe_generator(rent=False):
     # DROPPING IDENTIFIERS
     #_______________________________
 
-    df.drop(columns=['Id', 'idhogar'], inplace=True)
+    # df.drop(columns=['Id', 'idhogar'], inplace=True)
 
 
     return df
@@ -87,14 +87,14 @@ def dataframe_generator(rent=False):
 
 
 # Rent Prediction Function
-def dataframe_generator_rent():
+def dataframe_generator_rent(data):
     
     #_______________________________
     # DATAFRAME SETUP
     #_______________________________
     
     # Setting up new dataframe (including rent data)
-    df_rent = dataframe_generator(rent=True)
+    df_rent = dataframe_generator(data, rent=True)
     
     # Remove missing values for target (rent)
     df_rent_predict = df_rent.dropna()
@@ -105,7 +105,7 @@ def dataframe_generator_rent():
     #_______________________________
     
     # Partition explanatory and response variables
-    X = df_rent_predict.drop(columns='v2a1')
+    X = df_rent_predict.drop(columns=['v2a1', 'Id', 'idhogar'])
     y = df_rent_predict['v2a1']
 
     # Split into training and test data
@@ -136,7 +136,7 @@ def dataframe_generator_rent():
     df_rent_nan = df_rent[df_rent.v2a1.isna()]
     
     # Predict using model
-    rent_pred = clf.predict(df_rent_nan.drop(columns='v2a1'))
+    rent_pred = clf.predict(df_rent_nan.drop(columns=['v2a1', 'Id', 'idhogar']))
     
     # Fill NaN
     df_rent_nan['v2a1'] = pd.DataFrame(rent_pred).values
@@ -146,3 +146,52 @@ def dataframe_generator_rent():
     
     
     return df_rent
+
+
+
+# Transformed DataFrame Generator
+def dataframe_generator_trans(data):
+    
+    # Top Features
+    top_features = ['v2a1', 'meaneduc', 'SQBedjefe', 'overcrowding', 'SQBdependency', 'age', 'rooms', 'qmobilephone']
+
+    # Best subset
+    winner = \
+            [['SQ_SQBedjefe',
+              'LOG_qmobilephone',
+              'SQ_v2a1',
+              'SQBdependency',
+              'SQBedjefe',
+              'meaneduc',
+              'qmobilephone',
+              'rooms',
+              'LOG_meaneduc',
+              'SQ_qmobilephone',
+              'v2a1',
+              'SQ_overcrowding',
+              'LOG_SQBdependency'],
+             13,
+             0.9257322175732218,
+             0.8887133182436542]
+            
+    # Create rent-inclusive dataframe
+    df_rent = dataframe_generator_rent(data)
+    
+    # Create transformed dataframe
+    df_trans = df_rent.copy(deep=True)
+    df_trans.drop(columns=top_features, inplace=True)
+
+    for feature in winner[0]:
+        if "SQ_" in feature:
+            col = feature.split("SQ_")[1]
+            df_trans[feature] = df_rent[col] ** 2
+
+        elif "LOG_" in feature:
+            col = feature.split("LOG_")[1]
+            df_trans[feature] = df_rent[col].apply(lambda x: np.log(x) if x!=0 else x)
+
+        else:
+            col = feature
+            df_trans[feature] = df_rent[col]
+            
+    return df_trans
