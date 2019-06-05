@@ -5,8 +5,9 @@
 # Imports
 import numpy as np
 import pandas as pd
-import xgboost as xgb
 from sklearn.model_selection import train_test_split
+import xgboost as xgb
+from sklearn.ensemble import RandomForestRegressor
 
 
 
@@ -113,14 +114,18 @@ def dataframe_generator_rent():
     
     #_______________________________
     # CLASSIFICATION 
-    # (using xgboost because it consistently gave highest score)
+    # (using random forest because it consistently gave highest score)
     #_______________________________
     
-    # Setup classifier
-    clf_xgb = xgb.XGBClassifier(max_depth=6,n_estimators=100, n_jobs=-1, subsample=.7)
+    # XGB
+    # clf = xgb.XGBClassifier(max_depth=6,n_estimators=100, n_jobs=-1, subsample=.7)
+    # clf.fit(X_train, y_train)
+    # print(clf.score(X_test, y_test))
     
-    # Fit model
-    clf_xgb.fit(X_train, y_train)
+    # Random Forest
+    clf = RandomForestRegressor()
+    clf.fit(X_train, y_train)
+    # print(clf.score(X_test, y_test))
     
     
     #_______________________________
@@ -131,7 +136,7 @@ def dataframe_generator_rent():
     df_rent_nan = df_rent[df_rent.v2a1.isna()]
     
     # Predict using model
-    rent_pred = clf_xgb.predict(df_rent_nan.drop(columns='v2a1'))
+    rent_pred = clf.predict(df_rent_nan.drop(columns='v2a1'))
     
     # Fill NaN
     df_rent_nan['v2a1'] = pd.DataFrame(rent_pred).values
