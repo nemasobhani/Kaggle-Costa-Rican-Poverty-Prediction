@@ -14,9 +14,6 @@
     - AWS
     - Google Colab
 
-- Literature Review
-    - *Pending...*
-
 ## Approach
 
 1.  Data Exploration/Visualization
