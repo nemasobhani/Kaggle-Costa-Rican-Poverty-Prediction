@@ -12,6 +12,7 @@
     - Numpy
     - Scikit Learn
     - AWS
+    - Google Colab
 
 - Literature Review
     - *Pending...*
@@ -26,17 +27,20 @@
 
 2.  Cleaning
     -  Decide on how to handle null values
-    -  Encoding necessary? 
+    -  Filling missing values with regression
     
 3.  Feature Selection/Engineering
     -  Finalize features to include in model
-    -  Perform logical transformations.
+    -  Perform logical transformations (as well as from high scoring random subsets)
     
 4.  Classification
-    -  Try various models and report accuracy
+    -  Multinomial Logistic Regression 
+    -  Support Vector Machines
+    -  Random Forest
+    -  XGBoost
     
 5.  Tuning of hyper-parameters
-    -  ???
+    -  RandomizedSearchCV / GridSearchCV
 
 
 ## Timeline
