@@ -1,13 +1,13 @@
 # Costa Rican Household Poverty Level Prediction
 
-- Team Members:
+## Team Members:
     - Nema Sobhani
     - David LaCharite
 
-- Motivation & Data
+## Motivation & Data
     - Using Data to **Predict Costa Rican Household Poverty** (from Kaggle found [here](https://www.kaggle.com/c/costa-rican-household-poverty-prediction)).
 
-- Libraries/tools
+## Libraries/Tools
     - Pandas
     - Numpy
     - Scikit Learn
