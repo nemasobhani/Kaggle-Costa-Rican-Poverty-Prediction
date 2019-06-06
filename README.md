@@ -4,7 +4,7 @@
     - Nema Sobhani
     - David LaCharite
 
-## Notebook Path
+## Binder Notebook Path
 
 https://mybinder.org/v2/gh/nemasobhani/Kaggle-Costa-Rican-Poverty-Prediction/master?filepath=FINAL_REPORT.ipynb
 
