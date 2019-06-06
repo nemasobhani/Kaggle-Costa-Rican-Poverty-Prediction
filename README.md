@@ -15,7 +15,7 @@ https://mybinder.org/v2/gh/nemasobhani/Kaggle-Costa-Rican-Poverty-Prediction/mas
     - Pandas
     - Numpy
     - Scikit Learn
-    - AWS
+    - AWS (maybe)
     - Google Colab
 
 ## Approach
