@@ -123,7 +123,7 @@ def dataframe_generator_rent(data):
     # print(clf.score(X_test, y_test))
     
     # Random Forest
-    clf = RandomForestRegressor()
+    clf = RandomForestRegressor(n_estimators=10)
     clf.fit(X_train, y_train)
     # print(clf.score(X_test, y_test))
     
