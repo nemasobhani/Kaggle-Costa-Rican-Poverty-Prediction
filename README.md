@@ -4,6 +4,10 @@
     - Nema Sobhani
     - David LaCharite
 
+## Notebook Path
+
+https://mybinder.org/v2/gh/nemasobhani/Kaggle-Costa-Rican-Poverty-Prediction/master?filepath=FINAL_REPORT.ipynb
+
 ## Motivation & Data
   - Using Data to **Predict Costa Rican Household Poverty** (from Kaggle found [here](https://www.kaggle.com/c/costa-rican-household-poverty-prediction)).
 
