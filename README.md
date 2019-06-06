@@ -5,7 +5,7 @@
     - David LaCharite
 
 ## Motivation & Data
-    - Using Data to **Predict Costa Rican Household Poverty** (from Kaggle found [here](https://www.kaggle.com/c/costa-rican-household-poverty-prediction)).
+  - Using Data to **Predict Costa Rican Household Poverty** (from Kaggle found [here](https://www.kaggle.com/c/costa-rican-household-poverty-prediction)).
 
 ## Libraries/Tools
     - Pandas
